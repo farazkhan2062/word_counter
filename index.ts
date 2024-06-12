@@ -1,9 +1,6 @@
 #! /usr/bin/env node
-
-// improt a 'inquirer' module, which is the command line interfaace for node.js
 import inquirer from "inquirer";
-
-//Declear a Constant "answer" and assign ti the result of inquirer.prompt function
+import chalk from "chalk";
 const answers : {
     sentence : string} = await inquirer.prompt
     (
@@ -15,11 +12,10 @@ const answers : {
             },
         ]
     );
-
     const words = answers.sentence.trim().split(" ");
-    console.log(`Your sentence has ${words.length} words`);
-    console.log(`Your sentence has ${answers.sentence.length} characters`);
-    console.log(`Your sentence has ${answers.sentence.trim().length} characters without spaces`);
-    console.log(`Your sentence has ${answers.sentence.trim().split(" ").length} words`);
-    console.log(`Your sentence has ${answers.sentence.trim().split(" ").length} words without spaces`);
+    console.log(chalk.blue(`Your sentence has ${words.length} words`));
+    console.log(chalk.yellow(`Your sentence has ${answers.sentence.length} characters`));
+    console.log(chalk.green(`Your sentence has ${answers.sentence.trim().length} characters without spaces`));
+    console.log(chalk.magenta(`Your sentence has ${answers.sentence.trim().split(" ").length} words`));
+    console.log(chalk.red(`Your sentence has ${answers.sentence.trim().split(" ").length} words without spaces`));
     console.log(words);
